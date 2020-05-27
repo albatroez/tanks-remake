@@ -25,6 +25,7 @@ public class ShellShooter : MonoBehaviour
             var shell = Instantiate(prefab, transform.position + transform.forward, Quaternion.identity);
             shell.GetComponent<Rigidbody>().AddForce(transform.forward * shellSpeed);
             nextFire = Time.time + fireRate;
+            Destroy(shell, 1.5f);
         }
         
     }
