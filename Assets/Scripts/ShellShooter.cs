@@ -10,6 +10,7 @@ public class ShellShooter : MonoBehaviour
 
     public float shellSpeed = 500f;
     public float fireRate = 1f;
+    public int damage = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class ShellShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         
         if (Input.GetKey(KeyCode.Space) && Time.time > nextFire)
         {
@@ -34,7 +36,8 @@ public class ShellShooter : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            other.gameObject.SendMessage("OnDamage", damage);
         }
     }
 
