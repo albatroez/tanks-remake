@@ -10,7 +10,7 @@ public class ShellShooter : MonoBehaviour
 
     public float shellSpeed = 500f;
     public float fireRate = 1f;
-    public int damage = 10;
+    public int damage = 25;
     // Start is called before the first frame update
     void Start()
     {
