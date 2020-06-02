@@ -28,19 +28,15 @@ public class AI : MonoBehaviour
     void Update()
     {
         var distance = Vector3.Distance(myTransform.position, target.position);
-
+        
         if (distance <= range)
         {
             myTransform.rotation = Quaternion.Slerp(myTransform.rotation, Quaternion.LookRotation(target.position - myTransform.position), rotationSpeed * Time.deltaTime);
 
-            var shell = Instantiate(prefab, transform.position + transform.forward, Quaternion.identity);
-            shell.GetComponent<Rigidbody>().AddForce(transform.forward * shellSpeed);
-            nextFire = Time.time + fireRate;
-            Destroy(shell, 1.5f);
-
             if (distance > stop)
             {
                 myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
+                Shoot();
             }
         }
 
@@ -49,7 +45,14 @@ public class AI : MonoBehaviour
 
     void Shoot()
     {
-        
+        if (Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            var shell = Instantiate(prefab, transform.position + transform.forward, Quaternion.identity);
+            shell.GetComponent<Rigidbody>().AddForce(transform.forward * shellSpeed);
+            nextFire = Time.time + fireRate;
+            Destroy(shell, 1.5f);
+        }
     }
     
 }
