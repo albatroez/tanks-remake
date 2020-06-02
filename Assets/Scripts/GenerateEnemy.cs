@@ -7,7 +7,8 @@ public class GenerateEnemy : MonoBehaviour
     // public GameObject theEnemy;
     public int xPos;
     public int zPos;
-    public int enemyCount;
+    public int enemyCount = 10;
+    private int currentNumberOfEnemies = 0;
     //private Rigidbody rigidbody;
 
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class GenerateEnemy : MonoBehaviour
     {
 
         GameObject theEnemy = Resources.Load("TankFree_Green") as GameObject;
-        while (enemyCount < 10)
+        while (enemyCount < 11)
         {
             
             xPos = Random.Range(1, 20);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoomBoom : MonoBehaviour
 {
     public int health = 100;
-    public int damage = 25;
+    public int damage = 50;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +18,12 @@ public class BoomBoom : MonoBehaviour
 
     }
 
-    void OnDamage()
+    void OnTriggerEnter(Collider other)
     {
-        health = health - damage;
-        if (health <= 0)
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            //Destroy(other.gameObject);
+            other.gameObject.SendMessage("OnDamage", damage);
         }
     }
 }

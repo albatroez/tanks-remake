@@ -172,9 +172,9 @@ GameObject:
   - component: {fileID: 7013387807535772039}
   - component: {fileID: 4950391379869278556}
   - component: {fileID: 7675904406502897186}
-  - component: {fileID: 893937622230354748}
   - component: {fileID: -7881324532463629580}
   - component: {fileID: -5552114186586277391}
+  - component: {fileID: 2287951372822154724}
   m_Layer: 0
   m_Name: TankFree_Green
   m_TagString: Enemy
@@ -264,20 +264,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &893937622230354748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3354916976622783175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511050facd530594bb60cc489769f409, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  damage: 50
 --- !u!114 &-7881324532463629580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +293,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9107852, y: 1.125915, z: 2.6642036}
   m_Center: {x: 0.0000003874302, y: 0.06295732, z: -0.038929284}
+--- !u!114 &2287951372822154724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3354916976622783175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990d2687594422448a0086a5997fea00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  damage: 50
 --- !u!1 &3916225007155662313
 GameObject:
   m_ObjectHideFlags: 0
