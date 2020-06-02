@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damage : MonoBehaviour
+public class BoomBoom : MonoBehaviour
 {
     public int health = 100;
-    
+    public int damage = 25;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void OnDamage(int damage)
+    void OnDamage()
     {
         health = health - damage;
         if (health <= 0)

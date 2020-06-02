@@ -19,7 +19,7 @@ public class AI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        prefab = Resources.Load("Shell") as GameObject;
+        prefab = Resources.Load("Shell 1") as GameObject;
         target = GameObject.FindWithTag("Player").transform;
         myTransform = transform;
     }

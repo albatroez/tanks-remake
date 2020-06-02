@@ -7,7 +7,7 @@ public class ShellShooter : MonoBehaviour
 {
     private GameObject prefab;
     private float nextFire;
-    public int damage = 25;
+    public int damage = 50;
     public float shellSpeed = 500f;
     public float fireRate = 1f;
     
@@ -16,6 +16,7 @@ public class ShellShooter : MonoBehaviour
     {
         prefab = Resources.Load("Shell") as GameObject;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -30,14 +31,6 @@ public class ShellShooter : MonoBehaviour
             Destroy(shell, 2f);
         }
         
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            //Destroy(other.gameObject);
-            other.gameObject.SendMessage("OnDamage", damage);
-        }
     }
 
 }
