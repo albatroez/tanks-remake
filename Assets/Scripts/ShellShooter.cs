@@ -7,10 +7,10 @@ public class ShellShooter : MonoBehaviour
 {
     private GameObject prefab;
     private float nextFire;
-
+    public int damage = 25;
     public float shellSpeed = 500f;
     public float fireRate = 1f;
-    public int damage = 25;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +27,10 @@ public class ShellShooter : MonoBehaviour
             var shell = Instantiate(prefab, transform.position + transform.forward, Quaternion.identity);
             shell.GetComponent<Rigidbody>().AddForce(transform.forward * shellSpeed);
             nextFire = Time.time + fireRate;
-            Destroy(shell, 1.5f);
+            Destroy(shell, 2f);
         }
         
     }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
