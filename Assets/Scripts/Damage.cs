@@ -5,7 +5,9 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     public int health = 100;
-    public int damage = 50; 
+    public int damage = 50;
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +22,11 @@ public class Damage : MonoBehaviour
 
     void OnDamage()
     {
+        
         health = health - damage;
         if (health <= 0)
         {
+            
             Destroy(gameObject);
         }
     }

@@ -10,11 +10,14 @@ public class ShellShooter : MonoBehaviour
     public int damage = 50;
     public float shellSpeed = 500f;
     public float fireRate = 1f;
-    
+    public AudioClip impact;
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         prefab = Resources.Load("Shell") as GameObject;
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -25,6 +28,7 @@ public class ShellShooter : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Space) && Time.time > nextFire)
         {
+            audioSource.PlayOneShot(impact);
             var shell = Instantiate(prefab, transform.position + transform.forward, Quaternion.identity);
             shell.GetComponent<Rigidbody>().AddForce(transform.forward * shellSpeed);
             nextFire = Time.time + fireRate;
