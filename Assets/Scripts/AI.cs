@@ -11,15 +11,16 @@ public class AI : MonoBehaviour
     int stop = 0;
     float range = 10f;
     private GameObject prefab;
-    public float shellSpeed = 200f;
+    public float shellSpeed = 400f;
     public float fireRate = 1f;
     private float nextFire;
+    private float colliderSize = 2.664204f;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        prefab = Resources.Load("Shell 1") as GameObject;
+        prefab = Resources.Load("Shell") as GameObject;
         target = GameObject.FindWithTag("Player").transform;
         myTransform = transform;
     }
@@ -48,7 +49,7 @@ public class AI : MonoBehaviour
         if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            var shell = Instantiate(prefab, transform.position + transform.forward, Quaternion.identity);
+            var shell = Instantiate(prefab, transform.position + transform.forward*colliderSize/1.5f, Quaternion.identity);
             shell.GetComponent<Rigidbody>().AddForce(transform.forward * shellSpeed);
             nextFire = Time.time + fireRate;
             Destroy(shell, 1.5f);

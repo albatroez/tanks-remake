@@ -18,6 +18,18 @@ public class Damage : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            health -= damage;
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     void OnDamage()
     {
         health = health - damage;
