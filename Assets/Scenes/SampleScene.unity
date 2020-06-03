@@ -190,6 +190,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64103f49d5b068449bfda2e32b90e9a3, type: 3}
+--- !u!1 &411960493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3354916976622783175, guid: 997823ade0e2fc249a876fa159f69cc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 971573069}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &411960496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411960493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990d2687594422448a0086a5997fea00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  damage: 50
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +483,8 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 893937622230354748, guid: 997823ade0e2fc249a876fa159f69cc3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 997823ade0e2fc249a876fa159f69cc3, type: 3}
 --- !u!1 &1015649621
 GameObject:
@@ -574,6 +595,7 @@ GameObject:
   - component: {fileID: 1179727924}
   - component: {fileID: 1179727923}
   - component: {fileID: 1179727929}
+  - component: {fileID: 1179727930}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -606,7 +628,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
@@ -619,7 +641,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179727922}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -701,6 +723,20 @@ MonoBehaviour:
   damage: 50
   shellSpeed: 500
   fireRate: 1
+--- !u!114 &1179727930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179727922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2fc23da1d1a7ca488b6736d5bb3e35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  damage: 10
 --- !u!1001 &1269901408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1017,7 +1053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xPos: 0
   zPos: 0
-  enemyCount: 5
+  enemyCount: 0
 --- !u!1 &1736672226
 GameObject:
   m_ObjectHideFlags: 0
