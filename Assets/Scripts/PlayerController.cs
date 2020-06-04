@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,9 +14,15 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private Rigidbody rigidbody;
 
+    public int maxHealth = 100;
+    public int currrentHealth;
+    public HealthBar healthBar;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        currrentHealth = maxHealth;
+        healthBar.SetMaxValue(100);
     }
 
     void Update()
@@ -59,13 +66,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void TakeDamage(int damage)
+    {
+        currrentHealth -= damage;
+        healthBar.SetHealth(currrentHealth);
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            TakeDamage(20);
             health -= 20;
             if (health <= 0)
             {
+
                 Destroy(gameObject);
             }
         } 
