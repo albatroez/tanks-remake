@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public int health = 100;
     public float rideSpeed = 2f;
     public float scrollScale = 0.8f;
     
@@ -59,4 +59,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            health -= 20;
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        } 
+    }
 }
