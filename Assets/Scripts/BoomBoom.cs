@@ -18,13 +18,9 @@ public class BoomBoom : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            audioSource.Play();
-            //Destroy(other.gameObject);
-            other.gameObject.SendMessage("OnDamage", damage);
-        }
+
+        Destroy(gameObject);
     }
 }

@@ -29,7 +29,8 @@ public class ShellShooter : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && Time.time > nextFire)
         {
             audioSource.PlayOneShot(impact);
-            var shell = Instantiate(prefab, transform.position + transform.forward, Quaternion.identity);
+
+            var shell = Instantiate(prefab, transform.position + transform.forward*1.5f, Quaternion.identity);
             shell.GetComponent<Rigidbody>().AddForce(transform.forward * shellSpeed);
             nextFire = Time.time + fireRate;
             Destroy(shell, 2f);

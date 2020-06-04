@@ -7,10 +7,18 @@ public class ShatterOnCollision : MonoBehaviour
 {
     public GameObject replacement;
 
+    private string[] TagList = {"Bullet", "Player", "Enemy"};
     private void OnCollisionEnter(Collision other)
     {
-        GameObject.Instantiate(replacement, transform.position + Vector3.down, transform.rotation);
+        foreach (string testTag in TagList)
+        {
+            if (other.gameObject.CompareTag(testTag))
+            {
+                GameObject.Instantiate(replacement, transform.position + Vector3.down, transform.rotation);
+                Destroy(gameObject);
+            }
+        }
         
-        Destroy(gameObject);
+        
     }
 }
